@@ -10,7 +10,6 @@
 	<?php include 'includes/navbar.php'; ?>
 	<div class="container">
 		<div class="row mt-4">
-			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
 			<div class="col-md-12">
 				<div class="card mt-4">
 					<div class="card-header">
@@ -18,7 +17,7 @@
 					</div>
 					<div class="card-body">
 						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis enim distinctio maxime, dolores nesciunt eaque voluptate a, molestiae tempora quia dolorem iure aut doloremque. Suscipit exercitationem provident ad, at vel.</p>
-						<a href="categories.php">See More</a>
+						<a href="add-a-candidate.php">See More</a>
 					</div>
 				</div>
 			</div>
@@ -29,7 +28,7 @@
 					</div>
 					<div class="card-body">
 						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis laudantium totam laborum adipisci, dolorum tempora ab, mollitia. Debitis iusto vero illum aut eum possimus architecto ut velit dolorem ex, reprehenderit.</p>
-						<a href="categories.php">See More</a>
+						<a href="add-a-candidate.php">See More</a>
 					</div>
 				</div>
 			</div>

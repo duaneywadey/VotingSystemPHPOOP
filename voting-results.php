@@ -8,28 +8,22 @@
 </head>
 <body>
 	<?php include 'includes/navbar.php'; ?>
+
 	<div class="container">
-		<div class="row mt-4">
-			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						<h4>Election January 2024</h4>
-					</div>
+		<div class="row justify-content-center">
+			<div class="col-md-12 mt-4">
+				<div class="card">
+					<div class="card-header"><h3>January 2024 Election</h3></div>
 					<div class="card-body">
-						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis enim distinctio maxime, dolores nesciunt eaque voluptate a, molestiae tempora quia dolorem iure aut doloremque. Suscipit exercitationem provident ad, at vel.</p>
-						<a href="categories.php">See More</a>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas, harum necessitatibus excepturi nobis culpa ipsa in, placeat labore consectetur natus dolor rerum totam autem assumenda deleniti blanditiis provident corrupti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur laboriosam itaque delectus praesentium provident optio ad aperiam ab hic, dolorum ex, earum deserunt animi. Nulla expedita officia similique hic quidem?</p>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-12 mt-4">
 				<div class="card">
-					<div class="card-header">
-						<h4>Election February 2024</h4>
-					</div>
+					<div class="card-header"><h3>January 2024 Election</h3></div>
 					<div class="card-body">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis laudantium totam laborum adipisci, dolorum tempora ab, mollitia. Debitis iusto vero illum aut eum possimus architecto ut velit dolorem ex, reprehenderit.</p>
-						<a href="categories.php">See More</a>
+						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas, harum necessitatibus excepturi nobis culpa ipsa in, placeat labore consectetur natus dolor rerum totam autem assumenda deleniti blanditiis provident corrupti!</p>
 					</div>
 				</div>
 			</div>

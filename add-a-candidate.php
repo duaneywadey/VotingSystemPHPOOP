@@ -8,28 +8,35 @@
 </head>
 <body>
 	<?php include 'includes/navbar.php'; ?>
+
 	<div class="container">
-		<div class="row mt-4">
-			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						<h4>Election January 2024</h4>
-					</div>
-					<div class="card-body">
-						<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis enim distinctio maxime, dolores nesciunt eaque voluptate a, molestiae tempora quia dolorem iure aut doloremque. Suscipit exercitationem provident ad, at vel.</p>
-						<a href="categories.php">See More</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12 mt-4">
+		<div class="row mt-4 justify-content-center">
+			<div class="col-md-6">
 				<div class="card">
-					<div class="card-header">
-						<h4>Election February 2024</h4>
-					</div>
+					<div class="card-header"><h3>Add New Candidate</h3></div>
 					<div class="card-body">
-						<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Officiis laudantium totam laborum adipisci, dolorum tempora ab, mollitia. Debitis iusto vero illum aut eum possimus architecto ut velit dolorem ex, reprehenderit.</p>
-						<a href="categories.php">See More</a>
+						<form action="#" method="POST">
+							<div class="form-group">
+								<label for="election">Name of Candidate</label>
+								<input type="text" class="form-control" name="categoryName">
+							</div>
+							<div class="form-group">
+								<label for="election">Address of Candidate</label>
+								<input type="text" class="form-control" name="categoryName">
+							</div>
+							<div class="form-group">
+								<label for="election">Election</label>
+								<select class="form-control" aria-label="Default select example">
+									<option selected>Open this select menu</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<input type="submit" name="submitCategoryBtn" class="btn btn-primary">
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
