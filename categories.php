@@ -19,50 +19,22 @@
 					<div class="card-body">
 						<form action="php/categories.php" method="POST">
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
 							</div>
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
 							</div>
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
-							</div>
-							<button type="submit" class="btn btn-primary mt-4">Submit</button>
-						</form>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">Category1</div>
-					<div class="card-body">
-						<form action="php/categories.php" method="POST">
-							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
-							</div>
-							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
-							</div>
-							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
 							</div>
 							<button type="submit" class="btn btn-primary mt-4">Submit</button>
 						</form>
@@ -75,22 +47,80 @@
 					<div class="card-body">
 						<form action="php/categories.php" method="POST">
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
 							</div>
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
 							</div>
 							<div class="form-check">
-							  <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-							  <label class="form-check-label" for="exampleRadios1">
-							    Default radio
-							  </label>
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary mt-4">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="card mt-4">
+					<div class="card-header">Category1</div>
+					<div class="card-body">
+						<form action="php/categories.php" method="POST">
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
+							</div>
+							<div class="form-check">
+								<input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+								<label class="form-check-label" for="exampleRadios1">
+									Default radio
+								</label>
+							</div>
+							<button type="submit" class="btn btn-primary mt-4">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-12">
+				<div class="card mt-4">
+					<div class="card-header">Multi Select</div>
+					<div class="card-body">
+						<form action="php/categories.php" method="POST">
+							<div class="form-check">
+								<input class="multi-select form-check-input" type="checkbox" id="inlineCheckbox1" value="1">
+								<label class="form-check-label" for="inlineCheckbox1">1</label>
+							</div>
+							<div class="form-check">
+								<input class="multi-select form-check-input" type="checkbox" id="inlineCheckbox1" value="2">
+								<label class="form-check-label" for="inlineCheckbox1">1</label>
+							</div>
+							<div class="form-check">
+								<input class="multi-select form-check-input" type="checkbox" id="inlineCheckbox1" value="3">
+								<label class="form-check-label" for="inlineCheckbox1">1</label>
+							</div>
+							<div class="form-check">
+								<input class="multi-select form-check-input" type="checkbox" id="inlineCheckbox1" value="4">
+								<label class="form-check-label" for="inlineCheckbox1">1</label>
+							</div>
+							<div class="form-check">
+								<input class="multi-select form-check-input" type="checkbox" id="inlineCheckbox1" value="option5">
+								<label class="form-check-label" for="inlineCheckbox1">1</label>
 							</div>
 							<button type="submit" class="btn btn-primary mt-4">Submit</button>
 						</form>
@@ -99,6 +129,26 @@
 			</div>
 		</div>
 	</div>
+
+	<script>
+		const fruits = []
+
+
+		$('.multi-select').change(function(e){
+			var ischecked= $(this).is(':checked');
+
+			if ($('.multi-select:checked').length > 3) {
+				$(this).prop('checked',false);
+				alert("allowed only 3");
+
+				if(!$('.multi-select:checked')) {
+					$(this).prop('disabled',true);
+				}
+			}
+
+		})
+
+	</script>
 
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

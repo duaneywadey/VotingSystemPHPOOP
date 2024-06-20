@@ -4,8 +4,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 	<link rel="stylesheet" href="includes/styles.css">
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 	<title>Hello, world!</title>
+	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<?php include 'includes/navbar.php'; ?>
@@ -14,17 +14,12 @@
 		<div class="row mt-4 justify-content-center">
 			<div class="col-md-6">
 				<div class="card">
-					<div class="card-header"><h3>Add New Category</h3></div>
+					<div class="card-header"><h3>Add New Election</h3></div>
 					<div class="card-body">
 						<form action="#" method="POST">
 							<div class="form-group">
-								<label for="election">Election</label>
-								<select class="form-control" aria-label="Default select example">
-									<option selected>Open this select menu</option>
-									<option value="1">One</option>
-									<option value="2">Two</option>
-									<option value="3">Three</option>
-								</select>
+								<label for="election">Name of Election</label>
+								<input type="text" class="form-control" name="categoryName">
 							</div>
 							<div class="form-group">
 								<label for="election">Description</label>
