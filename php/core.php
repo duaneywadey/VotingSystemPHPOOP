@@ -15,7 +15,7 @@ spl_autoload_register(function($className) {
 });
 
 $candidateObj = new Candidate($pdo);
-$categoryObj = new Category($pdo);
+// $categoryObj = new Category($pdo);
 $electionObj  = new Election($pdo);
-$userObj  = new User($pdo);
-$voteObj  = new Vote($pdo);
+// $userObj  = new User($pdo);
+// $voteObj  = new Vote($pdo);

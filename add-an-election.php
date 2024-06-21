@@ -2,10 +2,8 @@
 <head>    
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-	<link rel="stylesheet" href="includes/styles.css">
 	<title>Hello, world!</title>
-	<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+	<?php include 'includes/header.php'; ?>
 </head>
 <body>
 	<?php include 'includes/navbar.php'; ?>
@@ -16,17 +14,17 @@
 				<div class="card">
 					<div class="card-header"><h3>Add New Election</h3></div>
 					<div class="card-body">
-						<form action="#" method="POST">
+						<form action="php/elections.php" method="POST">
 							<div class="form-group">
 								<label for="election">Name of Election</label>
-								<input type="text" class="form-control" name="categoryName">
+								<input type="text" class="form-control" name="election_title">
 							</div>
 							<div class="form-group">
-								<label for="election">Description</label>
-								<input type="text" class="form-control" name="categoryName">
+								<label for="exampleFormControlTextarea1">Description</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="election_description"></textarea>
 							</div>
 							<div class="form-group">
-								<input type="submit" name="submitCategoryBtn" class="btn btn-primary">
+								<input type="submit" name="submitElectionBtn" class="btn btn-primary">
 							</div>
 						</form>
 					</div>
@@ -34,9 +32,6 @@
 			</div>
 		</div>
 	</div>
-
-
-	<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+	<?php include 'includes/footer.php'; ?>
 </body>
 </html>
