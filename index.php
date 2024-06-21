@@ -12,14 +12,14 @@
 		<div class="row mt-4">
 			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
 			<?php $viewAllElections = $electionObj->viewAllElections();?>
-			<?php foreach ($viewAllElections as $row) { ?>
+			<?php foreach ($viewAllElections as $col) { ?>
 			<div class="col-md-12">
 				<div class="card mt-4">
 					<div class="card-header">
-						<h4><?php echo $row['election_title']; ?></h4>
+						<h4><?php echo $col['election_title']; ?></h4>
 					</div>
 					<div class="card-body">
-						<p><?php echo $row['election_description']; ?></p>
+						<p><?php echo $col['election_description']; ?></p>
 						<a href="categories.php">See More</a>
 					</div>
 				</div>
