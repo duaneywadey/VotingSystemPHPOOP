@@ -18,4 +18,4 @@ $candidateObj = new Candidate($pdo);
 $categoryObj = new Category($pdo);
 $electionObj  = new Election($pdo);
 // $userObj  = new User($pdo);
-// $voteObj  = new Vote($pdo);
+$voteObj  = new Vote($pdo);
