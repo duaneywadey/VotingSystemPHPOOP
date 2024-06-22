@@ -13,7 +13,7 @@
         <a class="nav-link" href="add-an-election.php">Add Election</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="add-candidates-page.php">Add Candidates</a>
+        <a class="nav-link" href="add-a-category.php">Add Category</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="voting-results.php">Voting Results</a>

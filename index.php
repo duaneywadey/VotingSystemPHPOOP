@@ -28,10 +28,5 @@
 		</div>
 	</div>
 	<?php include 'includes/footer.php'; ?>
-	<script>
-		$('.card-body').on('click', function (e) {
-			alert($(this).text());
-		})
-	</script>
 </body>
 </html>

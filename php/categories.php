@@ -7,7 +7,7 @@ if (isset($_POST['addCategoryBtn'])) {
 	$category_description = $_POST['category_description'];
 	
 	if($categoryObj->addNewCategory($category_title, $category_description, $election_id)) {
-		header('Location: ../index.php');
+		header('Location: ../add-a-category.php');
 	}	
 }
 

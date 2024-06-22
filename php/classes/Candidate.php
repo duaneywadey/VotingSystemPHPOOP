@@ -22,6 +22,32 @@ class Candidate {
 		}
 	}
 
+	public function viewAllCandidates() {
+		try {
+			$sql = "SELECT * FROM candidates";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		} 
+	}
+
+	public function viewAllCandidatesById($election_id, $category_id) {
+		try {
+			$sql = "SELECT * FROM candidates 
+					WHERE election_id=? AND category_id=?
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$election_id, $category_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		} 
+	}
+
 }
 
 ?>

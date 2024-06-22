@@ -22,6 +22,18 @@ class Category {
 		}
 	}
 
+	public function getCategoriesByElectionId($election_id) {
+		try {
+			$sql = "SELECT * FROM categories WHERE election_id=?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$election_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
 }
 
 ?>
