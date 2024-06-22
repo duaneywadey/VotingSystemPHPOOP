@@ -19,8 +19,7 @@
 						<h4><?php echo $col['election_title']; ?></h4>
 					</div>
 					<div class="card-body">
-						<p><?php echo $col['election_description']; ?></p>
-						<a href="categories.php">See More</a>
+						<a href="categories.php?election_id=<?php echo $col['election_id']; ?>" class="badge badge-success">Vote Now!</a>
 					</div>
 				</div>
 			</div>
