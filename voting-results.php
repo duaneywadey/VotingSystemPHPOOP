@@ -1,3 +1,4 @@
+<?php require_once 'php/core.php'; ?>
 <html lang="en">
 <head>    
 	<meta charset="utf-8">
@@ -10,22 +11,32 @@
 
 	<div class="container">
 		<div class="row justify-content-center">
+			<?php $viewAllElections = $electionObj->viewAllElections();?>
+			<?php foreach ($viewAllElections as $col) { ?>
 			<div class="col-md-12 mt-4">
 				<div class="card">
-					<div class="card-header"><h3>January 2024 Election</h3></div>
+					<div class="card-header"><h1><?php echo $col['election_title']; ?></h1></div>
 					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas, harum necessitatibus excepturi nobis culpa ipsa in, placeat labore consectetur natus dolor rerum totam autem assumenda deleniti blanditiis provident corrupti! Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur laboriosam itaque delectus praesentium provident optio ad aperiam ab hic, dolorum ex, earum deserunt animi. Nulla expedita officia similique hic quidem?</p>
+						<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>
+						<?php foreach ($getCategoriesByElectionId as $colTwo) { ?>
+						<div class="categoryList">
+							<h4><?php echo $colTwo['category_title']; ?></h4>
+							<ul>
+								<?php $showVotesByCategory = $voteObj->showVotesByCategory($col['election_id'], $colTwo['category_id']); ?>
+								<?php foreach ($showVotesByCategory as $colThree) { ?>
+								<li><?php echo $colThree['candidate_first_name'];?>
+									<ul>
+										<li><?php echo $colThree['vote_count']; ?> votes</li>
+									</ul>
+								</li>
+								<?php } ?>
+							</ul>
+						</div>
+						<?php } ?>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-12 mt-4">
-				<div class="card">
-					<div class="card-header"><h3>January 2024 Election</h3></div>
-					<div class="card-body">
-						<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptas, harum necessitatibus excepturi nobis culpa ipsa in, placeat labore consectetur natus dolor rerum totam autem assumenda deleniti blanditiis provident corrupti!</p>
-					</div>
-				</div>
-			</div>
+			<?php } ?>
 		</div>
 	</div>
 	<?php include 'includes/footer.php'; ?>

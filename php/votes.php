@@ -15,4 +15,6 @@ if (isset($_POST['addVoteBtn'])) {
 	}
 }
 
+
+
 ?>

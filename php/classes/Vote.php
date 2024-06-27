@@ -23,6 +23,25 @@ class Vote
 		}
 	}
 
+	public function showVotesByCategory($election_id, $category_id) {
+		try {
+			$sql = "SELECT 
+						candidates.first_name AS candidate_first_name,
+						COUNT(votes.vote_id) AS vote_count						
+					FROM candidates
+					JOIN votes ON candidates.candidate_id = votes.candidate_id
+					WHERE votes.election_id = ? AND votes.category_id = ?
+					GROUP BY candidate_first_name
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$election_id, $category_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
 }
 
 ?>
