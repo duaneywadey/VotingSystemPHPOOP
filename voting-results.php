@@ -26,7 +26,7 @@
 											<ul>
 												<?php $showVotesByCategory = $voteObj->showVotesByCategory($col['election_id'], $colTwo['category_id']); ?>
 												<?php foreach ($showVotesByCategory as $colThree) { ?>
-													<li><?php echo $colThree['candidate_first_name'];?>
+													<li><?php echo $colThree['candidate_name'];?>
 													<ul>
 														<li><?php echo $colThree['vote_count']; ?> votes</li>
 													</ul>

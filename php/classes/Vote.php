@@ -26,12 +26,12 @@ class Vote
 	public function showVotesByCategory($election_id, $category_id) {
 		try {
 			$sql = "SELECT 
-						candidates.first_name AS candidate_first_name,
+						CONCAT(candidates.first_name, ' ', candidates.last_name) AS candidate_name,
 						COUNT(votes.vote_id) AS vote_count						
 					FROM candidates
 					LEFT JOIN votes ON candidates.candidate_id = votes.candidate_id
 					WHERE votes.election_id = ? AND votes.category_id = ?
-					GROUP BY candidate_first_name
+					GROUP BY candidate_name
 					ORDER BY vote_count DESC
 					";
 			$stmt = $this->pdo->prepare($sql);
