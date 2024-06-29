@@ -11,23 +11,31 @@
 <div class="container">
 	<div class="row mt-4">
 		<?php $viewAllElections = $electionObj->viewAllElections(); ?>
-		<?php foreach ($viewAllElections as $col) { ?>
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						<h1><?php echo $col['election_title']; ?><button value="<?php echo $col['election_id']; ?>" class="addCategoryBtn float-right btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Category <i class="fa fa-plus" aria-hidden="true"></i> </button></h1>
-					</div>
-					<div class="card-body">
-						<ul class="list-group">
-						<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>
-						<?php foreach ($getCategoriesByElectionId as $col) { ?>
-						  <li class="list-group-item"><?php echo $col['category_title']; ?></li>
-						<?php } ?>
-						</ul>
-						<div class="linkGroup ml-2 mt-4">
-							<a href="add-a-candidate.php?election_id=<?php echo $col['election_id']; ?>">View Candidates</a>
+		<?php if (!empty($viewAllElections)) { ?>
+			<?php foreach ($viewAllElections as $col) { ?>
+				<div class="col-md-12">
+					<div class="card mt-4">
+						<div class="card-header">
+							<h1><?php echo $col['election_title']; ?><button value="<?php echo $col['election_id']; ?>" class="addCategoryBtn float-right btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Category <i class="fa fa-plus" aria-hidden="true"></i> </button></h1>
+						</div>
+						<div class="card-body">
+							<ul class="list-group">
+							<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>
+							<?php foreach ($getCategoriesByElectionId as $col) { ?>
+							  <li class="list-group-item"><?php echo $col['category_title']; ?></li>
+							<?php } ?>
+							</ul>
+							<div class="linkGroup ml-2 mt-4">
+								<a href="add-a-candidate.php?election_id=<?php echo $col['election_id']; ?>">View Candidates</a>
+							</div>
 						</div>
 					</div>
+				</div>
+				<?php } ?>
+			<?php } else { ?>
+			<div class="card shadow p-3 mb-5 bg-white rounded">
+				<div class="card-body">
+					<h1>This section is empty. Please contact your administrator for assistance.</h1>
 				</div>
 			</div>
 		<?php } ?>

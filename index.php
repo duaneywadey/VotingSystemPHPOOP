@@ -12,17 +12,25 @@
 		<div class="row mt-4">
 			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
 			<?php $viewAllElections = $electionObj->viewAllElections();?>
-			<?php foreach ($viewAllElections as $col) { ?>
-			<div class="col-md-12">
-				<div class="card mt-4">
-					<div class="card-header">
-						<h4><?php echo $col['election_title']; ?></h4>
+			<?php if (!empty($viewAllElections)) { ?>
+				<?php foreach ($viewAllElections as $col) { ?>
+					<div class="col-md-12">
+						<div class="card mt-4">
+							<div class="card-header">
+								<h4><?php echo $col['election_title']; ?></h4>
+							</div>
+							<div class="card-body">
+								<a href="votes.php?election_id=<?php echo $col['election_id']; ?>" class="badge badge-success">Vote Now!</a>
+							</div>
+						</div>
 					</div>
+					<?php } ?>
+			<?php } else { ?>
+				<div class="card mt-4 shadow p-3 mb-5 bg-white rounded">
 					<div class="card-body">
-						<a href="votes.php?election_id=<?php echo $col['election_id']; ?>" class="badge badge-success">Vote Now!</a>
+						<h1>This section is empty. Please contact your administrator for assistance.</h1>
 					</div>
 				</div>
-			</div>
 			<?php } ?>
 		</div>
 	</div>
