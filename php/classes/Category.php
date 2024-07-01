@@ -11,11 +11,11 @@ class Category {
 		}
 	}
 
-	public function addNewCategory($category_title, $category_description, $election_id) {
+	public function addNewCategory($category_title, $category_description, $election_id, $is_multiselect) {
 		try {
-			$sql = "INSERT INTO categories (category_title, category_description, election_id) VALUES (?,?,?)";
+			$sql = "INSERT INTO categories (category_title, category_description, election_id, is_multiselect) VALUES (?,?,?,?)";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$category_title, $category_description, $election_id]);
+			return $stmt->execute([$category_title, $category_description, $election_id, $is_multiselect]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());

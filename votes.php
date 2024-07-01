@@ -15,24 +15,51 @@
 				<div class="card">
 					<div class="card-body">
 						<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($_GET['election_id']);?>
-						<?php foreach ($getCategoriesByElectionId as $col) {?>
-							<div class="col-md-12">
-								<div class="card mt-4">
-									<div class="card-header"><?php echo $col['category_title']; ?></div>
+						<?php if (!empty($getCategoriesByElectionId)) { ?>
+							<?php foreach ($getCategoriesByElectionId as $col) {?>
+								<div class="col-md-12">
+									<div class="card mt-4">
+										<div class="card-header"><?php echo $col['category_title']; ?></div>
 
-									<div class="card-body">
-										<form action="php/votes.php?election_id=<?php echo $_GET['election_id']; ?>" method="POST">
-											<?php $viewAllCandidatesById = $candidateObj->viewAllCandidatesById($_GET['election_id'], $col['category_id']); ?>
-											<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
-												<div class="form-check">
-													<input class="form-check-input" type="radio" id="exampleRadios1" name="<?php echo $col['category_id']; ?>" value="<?php echo $colTwo['candidate_id']; ?>">
-													<label class="form-check-label" for="exampleRadios1">
-														<?php echo $colTwo['first_name']; ?>
-													</label>
-												</div>
+										<div class="card-body">
+											<form action="php/votes.php?election_id=<?php echo $_GET['election_id']; ?>" method="POST">
+
+												<?php if ($col['is_multiselect'] == 1) { ?>
+
+													<?php $viewAllCandidatesById = $candidateObj->viewAllCandidatesById($_GET['election_id'], $col['category_id']); ?>
+													<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
+														<div class="form-check">
+															<input type="hidden" name="multiselect_category_id" value="<?php echo $col['category_id']; ?>">
+															<input class="single-checkbox form-check-input" type="checkbox" id="exampleRadios1" name="multiSelect[]" value="<?php echo $colTwo['candidate_id']; ?>">
+															<label class="form-check-label" for="exampleRadios1">
+																<?php echo $colTwo['first_name']; ?>
+															</label>
+														</div>
+													<?php } ?>
+
+												<?php } else { ?>
+
+												<?php $viewAllCandidatesById = $candidateObj->viewAllCandidatesById($_GET['election_id'], $col['category_id']); ?>
+												<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
+													<div class="form-check">
+														<input type="hidden" name="individual_category_id" value="<?php echo $col['category_id']; ?>">
+														<input class="form-check-input" type="radio" id="exampleRadios1" name="candidate_id" value="<?php echo $colTwo['candidate_id']; ?>">
+														<label class="form-check-label" for="exampleRadios1">
+															<?php echo $colTwo['first_name']; ?>
+														</label>
+													</div>
+												<?php } ?>
+
 											<?php } ?>
-									</div>
+										</div>
 
+									</div>
+								</div>
+							<?php } ?>
+						<?php } else { ?>
+							<div class="card shadow p-3 mb-5 bg-white rounded">
+								<div class="card-body">
+									<h1>This section is empty. Please contact your administrator for assistance.</h1>
 								</div>
 							</div>
 						<?php } ?>
@@ -47,22 +74,14 @@
 	</div>
 	<?php include 'includes/footer.php'; ?>
 	<script>
-		const fruits = []
-
-
-		$('.multi-select').change(function(e){
-			var ischecked= $(this).is(':checked');
-
-			if ($('.multi-select:checked').length > 3) {
-				$(this).prop('checked',false);
-				alert("allowed only 3");
-
-				if(!$('.multi-select:checked')) {
-					$(this).prop('disabled',true);
-				}
-			}
-
-		})
+	    $('.single-checkbox').on('click', function (e) {
+	        if ($('.single-checkbox').filter(':checked').length >= 3) {
+	            $('.single-checkbox').not($('.single-checkbox').filter(':checked')).prop('disabled', true);
+	        } 
+	        else {
+	            $('.single-checkbox').prop('disabled', false);
+	        }
+	    })
 
 	</script>
 </body>

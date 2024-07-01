@@ -61,6 +61,10 @@
 							<label for="election">Description</label>
 							<input type="text" class="category_description form-control" name="category_description">
 						</div>
+						<div class="form-check">
+						    <input type="checkbox" class="form-check-input" id="exampleCheck1" name="is_multiselect">
+						    <label class="form-check-label" for="exampleCheck1">Enable Multiple Candidates</label>
+						</div>
 						<div class="form-group">
 							<input type="submit" class="btn btn-primary float-right" name="addCategoryBtn">
 						</div>
