@@ -28,7 +28,7 @@ if (isset($_POST['addVoteBtn'])) {
 	$submittedVotes = $_POST;
 	foreach ($submittedVotes as $key => $value) {
 		if ($value != "Submit") {
-			if ($voteObj->addNewVote($_GET['election_id'], $submittedVotes['individual_category_id'], $value)) {
+			if ($voteObj->addNewVote($_GET['election_id'], $key, $value)) {
 					header("Location: ../voting-results.php");
 				}	
 		}

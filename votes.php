@@ -43,7 +43,7 @@
 												<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
 													<div class="form-check">
 														<input type="hidden" name="individual_category_id" value="<?php echo $col['category_id']; ?>">
-														<input class="form-check-input" type="radio" id="exampleRadios1" name="candidate_id" value="<?php echo $colTwo['candidate_id']; ?>">
+														<input class="form-check-input" type="radio" id="exampleRadios1" name="<?php echo $col['category_id']; ?>" value="<?php echo $colTwo['candidate_id']; ?>">
 														<label class="form-check-label" for="exampleRadios1">
 															<?php echo $colTwo['first_name']; ?>
 														</label>
