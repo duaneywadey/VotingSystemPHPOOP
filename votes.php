@@ -28,12 +28,13 @@
 
 													<?php $viewAllCandidatesById = $candidateObj->viewAllCandidatesById($_GET['election_id'], $col['category_id']); ?>
 													<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
-														<div class="form-check">
-															<input type="hidden" name="multiselect_category_id" value="<?php echo $col['category_id']; ?>">
-															<input class="single-checkbox form-check-input" type="checkbox" id="exampleRadios1" name="multiSelect[]" value="<?php echo $colTwo['candidate_id']; ?>">
-															<label class="form-check-label" for="exampleRadios1">
-																<?php echo $colTwo['first_name']; ?>
-															</label>
+														<div class="multiSelectClass">
+															<div class="form-check">
+																<input class="single-checkbox form-check-input" type="checkbox" id="exampleRadios1" name="<?php echo $col['category_id']; ?>[]" value="<?php echo $colTwo['candidate_id']; ?>">
+																<label class="form-check-label" for="exampleRadios1">
+																	<?php echo $colTwo['first_name']; ?>
+																</label>
+															</div>
 														</div>
 													<?php } ?>
 
@@ -42,7 +43,6 @@
 												<?php $viewAllCandidatesById = $candidateObj->viewAllCandidatesById($_GET['election_id'], $col['category_id']); ?>
 												<?php foreach ($viewAllCandidatesById as $colTwo) { ?>
 													<div class="form-check">
-														<input type="hidden" name="individual_category_id" value="<?php echo $col['category_id']; ?>">
 														<input class="form-check-input" type="radio" id="exampleRadios1" name="<?php echo $col['category_id']; ?>" value="<?php echo $colTwo['candidate_id']; ?>">
 														<label class="form-check-label" for="exampleRadios1">
 															<?php echo $colTwo['first_name']; ?>
@@ -73,8 +73,8 @@
 		</div>
 	</div>
 	<?php include 'includes/footer.php'; ?>
-	<script>
-	    $('.single-checkbox').on('click', function (e) {
+	<!-- <script>
+	   $('.single-checkbox').on('click', function (e) {
 	        if ($('.single-checkbox').filter(':checked').length >= 3) {
 	            $('.single-checkbox').not($('.single-checkbox').filter(':checked')).prop('disabled', true);
 	        } 
@@ -82,7 +82,6 @@
 	            $('.single-checkbox').prop('disabled', false);
 	        }
 	    })
-
-	</script>
+	</script> -->
 </body>
 </html>
