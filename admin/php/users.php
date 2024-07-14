@@ -32,10 +32,22 @@ if (isset($_POST['registerBtn'])) {
 	
 	$username = $_POST['username'];
 	$password = $_POST['password'];
+	$confirmPassword = $_POST['confirmPassword'];
 
-	if($userObj->registerAUser($username, $password)) {
-		header("Location: ../index.php");
+	if ($password == $confirmPassword) {
+		
+		if($userObj->registerAUser($username, $password)) {
+			header("Location: ../index.php");
+		}
+		else {
+			echo "Username already exists!";
+		}
+
 	}
+	else {
+		echo "Passwords dont match!";
+	}
+	
 }
 
 if (isset($_POST['loginBtn'])) {
@@ -54,7 +66,5 @@ if (isset($_GET['logoutAUser'])) {
 	unset($_SESSION['username']);
 	header('Location: ../index.php');
 }
-
-
 
 ?>

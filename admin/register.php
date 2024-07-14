@@ -23,6 +23,10 @@
 						    <input type="password" class="form-control" name="password">
 						  </div>
 						  <div class="form-group">
+						    <label for="exampleInputPassword1">Confirm Password</label>
+						    <input type="password" class="form-control" name="confirmPassword">
+						  </div>
+						  <div class="form-group">
 						  	<p>Go back to <a href="login.php">login page</a></p>
 						  </div>
 						  <input type="submit" class="btn btn-primary float-right" name="registerBtn">
