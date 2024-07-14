@@ -10,7 +10,16 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="add-an-election.php">Add Election</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="add-a-category.php">Add Category</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="voting-results.php">Voting Results</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="php/users.php?logoutAUser=1">Logout</a>
       </li>
     </ul>
   </div>

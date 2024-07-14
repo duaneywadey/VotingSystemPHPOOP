@@ -19,6 +19,7 @@
 							<h1><?php echo $col['election_title']; ?><button value="<?php echo $col['election_id']; ?>" class="addCategoryBtn float-right btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Category <i class="fa fa-plus" aria-hidden="true"></i> </button></h1>
 						</div>
 						<div class="card-body">
+							<h4 class="card-title">Election Categories</h4>
 							<ul class="list-group">
 							<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>
 							<?php foreach ($getCategoriesByElectionId as $col) { ?>

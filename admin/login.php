@@ -13,7 +13,7 @@
 				<div class="card">
 					<div class="card-header"><h3>Welcome to the voting system! Login now!</h3></div>
 					<div class="card-body">
-						<form>
+						<form action="php/users.php" method="POST">
 						  <div class="form-group">
 						    <label for="exampleInputEmail1">Username</label>
 						    <input type="text" class="form-control" name="username">
