@@ -60,8 +60,11 @@ class User {
 					$_SESSION['is_admin'] = $is_admin;
 					$_SESSION['username'] = $username;
 					return true;
-
 				}
+				else {
+					return false;
+				}
+
 			}
 		}
 		catch (PDOException $e) {
