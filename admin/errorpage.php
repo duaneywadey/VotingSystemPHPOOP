@@ -1,0 +1,1 @@
+<?php echo "You're not authorized to access this page"; ?>

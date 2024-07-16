@@ -27,7 +27,7 @@ if (isset($_SESSION['is_admin'])) {
 			<?php if (!empty($viewAllElections)) { ?>
 				<?php foreach ($viewAllElections as $col) { ?>
 					<div class="col-md-12 mt-4">
-						<div class="card">
+						<div class="card shadow p-3 mb-5 bg-white rounded">
 							<div class="card-header"><h1><?php echo $col['election_title']; ?></h1></div>
 							<div class="card-body">
 								<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>

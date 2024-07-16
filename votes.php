@@ -1,3 +1,15 @@
+<?php 
+require_once 'php/core.php';
+if (!isset($_SESSION['username'])) {
+	header('Location: login.php');
+}
+
+if (isset($_SESSION['is_admin'])) {
+	if ($_SESSION['is_admin'] == 1) {
+		header('Location: admin/index.php');
+	}
+} 	
+?>
 <?php require_once 'php/core.php'; ?>
 <html lang="en">
 <head>    

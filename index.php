@@ -1,3 +1,16 @@
+<?php 
+require_once 'php/core.php';
+if (!isset($_SESSION['username'])) {
+	header('Location: login.php');
+}
+
+if (isset($_SESSION['is_admin'])) {
+	if ($_SESSION['is_admin'] == 1) {
+		header('Location: admin/index.php');
+	}
+} 	
+
+?>
 <?php require_once 'php/core.php'; ?>
 <html lang="en">
 <head>    
@@ -10,7 +23,7 @@
 	<?php include 'includes/navbar.php'; ?>
 	<div class="container">
 		<div class="row mt-4">
-			<h1>Welcome to the Voting System! <span class="text-success">Vote Now!</span></h1>
+			<h1>Vote now! <span class="text-primary"><?php echo $_SESSION['username']; ?></span></h1>
 			<?php $viewAllElections = $electionObj->viewAllElections();?>
 			<?php if (!empty($viewAllElections)) { ?>
 				<?php foreach ($viewAllElections as $col) { ?>

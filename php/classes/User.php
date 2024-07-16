@@ -41,7 +41,7 @@ class User {
 			$stmt->execute([$username]);
 
 			// If it exists, get all values from the row
-			if ($stmt->rowCount > 0) {
+			if ($stmt->rowCount() > 0) {
 				
 				// Returns associative array
 				$userInfoRow = $stmt->fetch();

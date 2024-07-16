@@ -12,6 +12,9 @@
       <li class="nav-item">
         <a class="nav-link" href="voting-results.php">Voting Results</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="php/users.php?logoutAUser=1">Logout</a>
+      </li>
     </ul>
   </div>
 </nav>
