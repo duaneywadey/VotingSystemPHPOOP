@@ -120,6 +120,28 @@ class User {
 		}	
 	}
 
+	public function getMostRecentUpdate($admin_id) {
+		try {
+			$sql = "SELECT 
+						users.username AS admin_who_updated,
+						admin_access_event_logs.date_added AS date_added
+					FROM admin_access_event_logs 
+					INNER JOIN users 
+						ON admin_access_event_logs.admin_who_updated = users.user_id
+					WHERE admin_access_event_logs.admin_id = ?
+					ORDER BY admin_access_event_logs.date_added DESC
+					LIMIT 1
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$admin_id]);
+			return $stmt->fetch();	
+		} 
+		catch (PDOException $e) {
+			die($e->getMessage());
+
+		}			
+	}
+
 }
 
 ?>

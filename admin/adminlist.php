@@ -40,8 +40,18 @@ if (isset($_SESSION['is_admin'])) {
 								<?php foreach ($getAllUsers as $user) { ?>
 								<tr data-userid = <?php echo $user['user_id']; ?>>
 									<td><?php echo $user['username']; ?></td>
-									<td>date here</td>
-									<td>user who updated</td>
+									<?php
+									$getMostRecentUpdate = $userObj->getMostRecentUpdate($user['user_id']); 
+									if (!empty($getMostRecentUpdate)) {
+										echo "<td>" . $getMostRecentUpdate['date_added'] . "</td>";
+										echo "<td>" . $getMostRecentUpdate['admin_who_updated'] ."</td>";
+									}
+									else {
+										echo "<td>Not yet updated</td>";
+										echo "<td>Not yet updated</td>";
+									}
+
+									?>
 									<td>
 									<?php if ($user['is_admin'] == 0) { ?>
 										<input type="checkbox" id="scales" name="scales" class="singleCheckbox"/>
