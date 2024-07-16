@@ -30,6 +30,8 @@ if (isset($_SESSION['is_admin'])) {
 							<thead>
 								<tr>
 									<th scope="col">Username</th>
+									<th scope="col">Last Updated</th>
+									<th scope="col">Updated By</th>
 									<th scope="col">Admin Access</th>
 								</tr>
 							</thead>
@@ -38,6 +40,8 @@ if (isset($_SESSION['is_admin'])) {
 								<?php foreach ($getAllUsers as $user) { ?>
 								<tr data-userid = <?php echo $user['user_id']; ?>>
 									<td><?php echo $user['username']; ?></td>
+									<td>date here</td>
+									<td>user who updated</td>
 									<td>
 									<?php if ($user['is_admin'] == 0) { ?>
 										<input type="checkbox" id="scales" name="scales" class="singleCheckbox"/>

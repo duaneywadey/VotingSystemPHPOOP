@@ -71,12 +71,17 @@ if (isset($_GET['logoutAUser'])) {
 }
 
 if (isset($_POST['makeAdmin'])) {
-	
+
 	$userID = $_POST['userID'];
-	
+
 	if ($userObj->updateAdminStatus($userID)) {
-		header('Location: ../adminlist.php');
+
+		if ($userObj->insertIntoAdminAccessEventLogs($userID, $_SESSION['user_id'])) {
+			header('Location: ../adminlist.php');
+		}
+
 	}
+
 }
 
 if (isset($_POST['disableAdmin'])) {
@@ -84,7 +89,12 @@ if (isset($_POST['disableAdmin'])) {
 	$userID = $_POST['userID'];
 
 	if ($userObj->disableAdminStatus($userID)) {
-		header('Location: ../adminlist.php');	
+
+		if ($userObj->insertIntoAdminAccessEventLogs($userID, $_SESSION['user_id'])) {
+			header('Location: ../adminlist.php');				
+		}
+		
 	}
 }
+
 ?>

@@ -108,6 +108,18 @@ class User {
 		}
 	}
 
+	public function insertIntoAdminAccessEventLogs($admin_id, $admin_who_updated) {
+		try {
+			$sql = "INSERT INTO admin_access_event_logs (admin_id, admin_who_updated) VALUES(?,?)";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$admin_id, $admin_who_updated]);	
+		} 
+		catch (PDOException $e) {
+			die($e->getMessage());
+
+		}	
+	}
+
 }
 
 ?>
