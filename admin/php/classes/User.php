@@ -84,6 +84,30 @@ class User {
 		}
 	}
 
+	public function updateAdminStatus($user_id) {
+		try {
+			$sql = "UPDATE users SET is_admin = 1 WHERE user_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$user_id]);	
+		} 
+		catch (PDOException $e) {
+			die($e->getMessage());
+
+		}
+	}
+
+	public function disableAdminStatus($user_id) {
+		try {
+			$sql = "UPDATE users SET is_admin = 0 WHERE user_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$user_id]);	
+		} 
+		catch (PDOException $e) {
+			die($e->getMessage());
+
+		}
+	}
+
 }
 
 ?>
