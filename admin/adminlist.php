@@ -1,8 +1,13 @@
 <?php 
 require_once 'php/core.php'; 
-
 if (!isset($_SESSION['username'])) {
 	header('Location: login.php');
+}
+
+if (isset($_SESSION['is_admin'])) {
+	if ($_SESSION['is_admin'] == 0) {
+		header('Location:login.php');
+	}
 }
 
 ?>
