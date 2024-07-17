@@ -22,7 +22,7 @@ if (isset($_SESSION['is_admin'])) {
 	<?php include 'includes/navbar.php'; ?>
 	<div class="container">
 		<div class="row mt-4">
-			<h1>Welcome to the <strong>Admin Panel!</strong> <span class="text-primary"><?php echo $_SESSION['username']; ?></span></h1>
+			<h1>Welcome to the <strong>Admin Panel!</strong> <span class="text-primary"><?php echo $_SESSION['username'] ?></span></h1>
 			<?php $viewAllElections = $electionObj->viewAllElections();?>
 			<?php if (!empty($viewAllElections)) { ?>
 				<?php foreach ($viewAllElections as $col) { ?>
