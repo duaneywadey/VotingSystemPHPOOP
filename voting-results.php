@@ -16,6 +16,11 @@ if (isset($_SESSION['is_admin'])) {
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<?php include 'includes/header.php'; ?>
 	<title>Hello, world!</title>
+	<style>
+		.listOfCandidates > li:first-child {
+			background-color: yellow;
+		}
+	</style>
 </head>
 <body>
 	<?php include 'includes/navbar.php'; ?>
@@ -35,7 +40,7 @@ if (isset($_SESSION['is_admin'])) {
 										<div class="card-body">
 											<div class="categoryList">
 												<h4><?php echo $colTwo['category_title']; ?></h4>
-												<ul>
+												<ul class="listOfCandidates">
 													<?php $showVotesByCategory = $voteObj->showVotesByCategory($col['election_id'], $colTwo['category_id']); ?>
 													<?php foreach ($showVotesByCategory as $colThree) { ?>
 														<li><?php echo $colThree['candidate_name'];?>
@@ -61,5 +66,6 @@ if (isset($_SESSION['is_admin'])) {
 		</div>
 	</div>
 <?php include 'includes/footer.php'; ?>
+
 </body>
 </html>
