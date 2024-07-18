@@ -7,7 +7,7 @@ if (isset($_POST['addVoteBtn'])) {
 	foreach ($submittedVotes as $key => $value) {
 		if ($value != "Submit") {
 			if ($voteObj->addNewVote($_SESSION['user_id'], $_GET['election_id'], $key, $value)) {
-				echo "string";;
+				echo "string";
 			}
 		}
 		foreach ($value as $keyTwo => $valueTwo) {

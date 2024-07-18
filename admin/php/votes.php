@@ -2,7 +2,7 @@
 require_once 'core.php';
 
 if (isset($_POST['addVoteBtn'])) {
-
+	
 	$submittedVotes = $_POST;
 	foreach ($submittedVotes as $key => $value) {
 		if ($value != "Submit") {

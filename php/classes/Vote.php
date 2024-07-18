@@ -12,24 +12,24 @@ class Vote
 		}
 	}
 
-	// public function checkIfPersonAlreadyVoted($user_id, $election_id){
-	// 	try {
-	// 		$sql = "SELECT * FROM votes WHERE user_id = ? AND election_id = ?";
-	// 		$stmt = $this->pdo->prepare($sql);
-	// 		$stmt->execute([$user_id, $election_id]);
+	public function checkIfPersonAlreadyVoted($user_id, $election_id){
+		try {
+			$sql = "SELECT * FROM votes WHERE user_id = ? AND election_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$user_id, $election_id]);
 
-	// 		if ($stmt->rowCount() > 0) {
-	// 			return true;
-	// 		}
-	// 		else {
-	// 			return false;
-	// 		}
-	// 	}
-	// 	catch (PDOException $e) {
-	// 		die($e->getMessage());
-	// 	}
+			if ($stmt->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
 
-	// }
+	}
 
 	public function addNewVote($user_id, $election_id, $category_id, $candidate_id) {
 		try {

@@ -77,7 +77,12 @@ if (isset($_SESSION['is_admin'])) {
 						<?php } ?>
 					</div>
 					<div class="form-group">
-						<input type="submit" class="btn btn-primary m-4 float-right" value="Submit" name="addVoteBtn">  
+						<?php if ($voteObj->checkIfPersonAlreadyVoted($_SESSION['user_id'], $_GET['election_id'])) {
+						?>
+						<input type="submit" class="btn btn-danger m-4 float-right" value="You're already done voting!" name="addVoteBtn" disabled>
+						<?php } else { ?>
+						<input type="submit" class="btn btn-primary m-4 float-right" value="Submit" name="addVoteBtn">
+						<?php } ?>
 					</div>
 					</form>
 				</div>
