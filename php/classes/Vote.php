@@ -31,11 +31,11 @@ class Vote
 
 	}
 
-	public function addNewVote($user_id, $election_id, $category_id, $candidate_id) {
+	public function addNewVote($submitted_vote_id, $user_id, $election_id, $category_id, $candidate_id) {
 		try {
-			$sql = "INSERT INTO votes (user_id, election_id, category_id, candidate_id) VALUES (?,?,?,?)";
+			$sql = "INSERT INTO votes (submitted_vote_id, user_id, election_id, category_id, candidate_id) VALUES (?,?,?,?,?)";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$user_id, $election_id, $category_id, $candidate_id]);
+			return $stmt->execute([$submitted_vote_id, $user_id, $election_id, $category_id, $candidate_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());
