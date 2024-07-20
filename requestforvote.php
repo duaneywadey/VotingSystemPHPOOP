@@ -26,10 +26,10 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card mt-4">
 					<div class="card-header"><h2>Make your request here</h2></div>
 					<div class="card-body">
-						<form action="php/votes.php">
+						<form action="php/votes.php" method="POST">
 							<label for="requestForVoteDescription">Description</label>
 							<textarea class="form-control" name="requestForVoteDescription" placeholder="Why do you want to vote again?"></textarea>
-							<input type="submit" class="btn btn-primary float-right mt-4">
+							<input type="submit" class="btn btn-primary float-right mt-4" name="requestForVoteBtn">
 						</form>
 					</div>
 				</div>

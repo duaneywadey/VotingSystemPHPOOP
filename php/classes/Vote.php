@@ -65,6 +65,17 @@ class Vote
 		}
 	}
 
+	public function requestToVoteAgain($description, $user_id) {
+		try {
+			$sql = "INSERT INTO another_vote_requests(description, user_id) VALUES(?,?)";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$description, $user_id]);
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
 }
 
 ?>

@@ -12,11 +12,11 @@ class Vote
 		}
 	}
 
-	public function addNewVote($user_id, $election_id, $category_id, $candidate_id) {
+	public function addNewVote($submitted_vote_id, $user_id, $election_id, $category_id, $candidate_id) {
 		try {
-			$sql = "INSERT INTO votes (user_id, election_id, category_id, candidate_id) VALUES (?,?,?,?)";
+			$sql = "INSERT INTO votes (submitted_vote_id, user_id, election_id, category_id, candidate_id) VALUES (?,?,?,?,?)";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$user_id, $election_id, $category_id, $candidate_id]);
+			return $stmt->execute([$submitted_vote_id, $user_id, $election_id, $category_id, $candidate_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());
@@ -40,6 +40,41 @@ class Vote
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute([$election_id, $category_id]);
 			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function showAnotherVoteRequests() {
+		try {
+			$sql = "SELECT 
+						users.username AS username,
+						another_vote_requests.another_vote_requests_id AS another_vote_requests_id,
+						another_vote_requests.description AS description,
+						another_vote_requests.is_accepted AS is_accepted,
+						another_vote_requests.date_added AS date_added
+					FROM users
+					JOIN another_vote_requests ON users.user_id = another_vote_requests.user_id
+					WHERE another_vote_requests.is_accepted = 0
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
+	public function acceptRequestToVoteAgain($another_vote_requests_id) {
+		try {
+			$sql = "UPDATE 
+						another_vote_requests 
+					SET is_accepted = 1 
+					WHERE another_vote_requests_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$another_vote_requests_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());

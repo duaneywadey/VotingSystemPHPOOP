@@ -26,10 +26,24 @@ if (isset($_SESSION['is_admin'])) {
 <body>
 	<?php include 'includes/navbar.php'; ?>
 	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-6">
-				<div class="card"></div>
+		<div class="row">
+			<h1 class="p-2">Requests to Vote Again</h1>
+			<?php $voteRequests = $voteObj->showAnotherVoteRequests(); ?>
+			<?php foreach ($voteRequests as $voteRequest) {?>
+			<div class="col-md-12 p-2">
+				<div class="card">
+					<div class="card-body">
+						<h2><?php echo $voteRequest['username']; ?></h2>
+						<small><?php echo $voteRequest['date_added']; ?></small>
+						<p><?php echo $voteRequest['description']; ?></p>
+						<form action="php/votes.php" method="POST">
+							<input type="hidden" value="<?php echo $voteRequest['another_vote_requests_id']; ?>" name="another_vote_requests_id">
+							<input type="submit" class="btn btn-primary float-right" value="Accept" name="acceptVoteAgainRequestBtn">
+						</form>
+					</div>
+				</div>
 			</div>
+			<?php } ?>
 		</div>
 	</div>
 
