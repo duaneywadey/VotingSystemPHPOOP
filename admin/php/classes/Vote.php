@@ -50,6 +50,7 @@ class Vote
 		try {
 			$sql = "SELECT 
 						users.username AS username,
+						another_vote_requests.user_id AS user_id,
 						another_vote_requests.another_vote_requests_id AS another_vote_requests_id,
 						another_vote_requests.description AS description,
 						another_vote_requests.is_accepted AS is_accepted,
@@ -79,6 +80,18 @@ class Vote
 		catch (PDOException $e) {
 			die($e->getMessage());
 		}
+	}
+
+	public function deleteAllUsersOlderVotes($user_id) {
+		try {
+			$sql = "DELETE FROM votes WHERE user_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$user_id]);
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
 	}
 
 }

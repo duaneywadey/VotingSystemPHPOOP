@@ -27,11 +27,12 @@ if (isset($_POST['addVoteBtn'])) {
 }
 
 if (isset($_POST['acceptVoteAgainRequestBtn'])) {
-	
 	$another_vote_requests_id = $_POST['another_vote_requests_id'];
-
+	$user_id = $_POST['user_id'];
 	if ($voteObj->acceptRequestToVoteAgain($another_vote_requests_id)) {
-		header('Location: ../voting-requests.php');
+		if ($voteObj->deleteAllUsersOlderVotes($user_id)) {
+			header('Location: ../voting-requests.php');
+		}
 	}
 }
 
