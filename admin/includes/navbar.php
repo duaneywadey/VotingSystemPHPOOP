@@ -19,6 +19,9 @@
         <a class="nav-link" href="voting-results.php">Voting Results</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="voting-results.php">Voting Requests</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="adminlist.php">Admins</a>
       </li>
       <li class="nav-item">
