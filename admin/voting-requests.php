@@ -35,7 +35,7 @@ if (isset($_SESSION['is_admin'])) {
 					<div class="card-body">
 						<h2><?php echo $voteRequest['username']; ?></h2>
 						<small><?php echo $voteRequest['date_added']; ?></small>
-						<p><?php echo $voteRequest['description']; ?></p>
+						<p class="mt-4"><?php echo $voteRequest['description']; ?></p>
 						<form action="php/votes.php" method="POST">
 							<input type="hidden" value="<?php echo $voteRequest['user_id']; ?>" name="user_id">
 							<input type="hidden" value="<?php echo $voteRequest['another_vote_requests_id']; ?>" name="another_vote_requests_id">

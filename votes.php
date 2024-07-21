@@ -79,7 +79,7 @@ if (isset($_SESSION['is_admin'])) {
 					<div class="form-group">
 						<?php if ($voteObj->checkIfPersonAlreadyVoted($_SESSION['user_id'], $_GET['election_id'])) {
 						?>
-						<a href="requestforvote.php" class="float-right p-4">Ask Admin For Another Vote</a>
+						<a href="requestforvote.php?user_id=<?php echo $_SESSION['user_id']; ?>" class="float-right p-4">Ask Admin For Another Vote</a>
 						<?php } else { ?>
 						<input type="submit" class="btn btn-primary m-4 float-right" value="Submit" name="addVoteBtn">
 						<?php } ?>

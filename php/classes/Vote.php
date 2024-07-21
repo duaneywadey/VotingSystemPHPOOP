@@ -65,6 +65,23 @@ class Vote
 		}
 	}
 
+	public function findUserVoteRequest($user_id) {
+		try {
+			$sql = "SELECT * FROM another_vote_requests WHERE user_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$user_id]);
+			if ($stmt->rowCount() > 0) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+
 	public function requestToVoteAgain($description, $user_id) {
 		try {
 			$sql = "INSERT INTO another_vote_requests(description, user_id) VALUES(?,?)";

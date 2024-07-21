@@ -34,7 +34,7 @@ if (isset($_POST['addVoteBtn'])) {
 if (isset($_POST['requestForVoteBtn'])) {
 	$requestForVoteDescription = $_POST['requestForVoteDescription'];
 	if ($voteObj->requestToVoteAgain($requestForVoteDescription, $_SESSION['user_id'])) {
-		header('Location: ../requestforvote.php');
+		header('Location: ../votes.php');
 	}
 	else {
 		echo "failed";

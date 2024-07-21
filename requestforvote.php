@@ -26,10 +26,14 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card mt-4">
 					<div class="card-header"><h2>Make your request here</h2></div>
 					<div class="card-body">
+						<?php if ($voteObj->findUserVoteRequest($_GET['user_id'])) { ?>
+							<h2>Please wait for the admin if he approves your request</h2>
+						<?php } else { ?>
 						<form action="php/votes.php" method="POST">
 							<label for="requestForVoteDescription">Description</label>
 							<textarea class="form-control" name="requestForVoteDescription" placeholder="Why do you want to vote again?"></textarea>
 							<input type="submit" class="btn btn-primary float-right mt-4" name="requestForVoteBtn">
+						<?php } ?>
 						</form>
 					</div>
 				</div>
