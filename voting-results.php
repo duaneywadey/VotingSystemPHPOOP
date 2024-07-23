@@ -34,6 +34,11 @@ if (isset($_SESSION['is_admin'])) {
 						<div class="card">
 							<div class="card-header"><h1><?php echo $col['election_title']; ?></h1></div>
 							<div class="card-body">
+								<?php if (isset($_SESSION['vote_sent'])) { ?>
+									<div class="alert alert-success" role="alert">
+										Vote successfully sent!
+									</div>
+								<?php } unset($_SESSION['vote_sent']);?>
 								<?php $getCategoriesByElectionId = $categoryObj->getCategoriesByElectionId($col['election_id']); ?>
 								<?php foreach ($getCategoriesByElectionId as $colTwo) { ?>
 									<div class="card mt-4">

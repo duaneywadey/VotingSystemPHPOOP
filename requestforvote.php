@@ -26,7 +26,14 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card mt-4">
 					<div class="card-header"><h2>Make your request here</h2></div>
 					<div class="card-body">
-						<?php if ($voteObj->findUserVoteRequest($_GET['user_id'])) { ?>
+
+						<?php if (isset($_SESSION['vote_request_sent'])) { ?>
+						<div class="alert alert-success" role="alert">
+							<?php echo $_SESSION['vote_request_sent']; ?>
+						</div>
+						<?php } unset($_SESSION['vote_request_sent']); ?>
+
+						<?php if ($voteObj->findUserVoteRequest($_SESSION['user_id'])) { ?>
 							<h2>Please wait for the admin if he approves your request</h2>
 						<?php } else { ?>
 						<form action="php/votes.php" method="POST">
@@ -35,6 +42,7 @@ if (isset($_SESSION['is_admin'])) {
 							<input type="submit" class="btn btn-primary float-right mt-4" name="requestForVoteBtn">
 						<?php } ?>
 						</form>
+
 					</div>
 				</div>
 			</div>

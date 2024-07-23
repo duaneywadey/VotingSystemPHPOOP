@@ -67,7 +67,7 @@ class Vote
 
 	public function findUserVoteRequest($user_id) {
 		try {
-			$sql = "SELECT * FROM another_vote_requests WHERE user_id = ?";
+			$sql = "SELECT * FROM another_vote_requests WHERE user_id = ? AND is_accepted = 0";
 			$stmt = $this->pdo->prepare($sql);
 			$stmt->execute([$user_id]);
 			if ($stmt->rowCount() > 0) {

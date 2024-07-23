@@ -28,13 +28,15 @@ if (isset($_POST['addVoteBtn'])) {
 	// print_r($submittedVotes);
 	// echo "<pre>";
 
+	$_SESSION['vote_sent'] = "Vote sent successfully";
 	header('Location: ../voting-results.php');
 }
 
 if (isset($_POST['requestForVoteBtn'])) {
 	$requestForVoteDescription = $_POST['requestForVoteDescription'];
 	if ($voteObj->requestToVoteAgain($requestForVoteDescription, $_SESSION['user_id'])) {
-		header('Location: ../votes.php');
+		$_SESSION['vote_request_sent'] = "Request to vote again sent successfully! Please wait for the admin's approval";
+		header('Location: ../requestforvote.php');
 	}
 	else {
 		echo "failed";
