@@ -82,11 +82,11 @@ class Vote
 		}
 	}
 
-	public function requestToVoteAgain($description, $user_id) {
+	public function requestToVoteAgain($description, $user_id, $election_id) {
 		try {
-			$sql = "INSERT INTO another_vote_requests(description, user_id) VALUES(?,?)";
+			$sql = "INSERT INTO another_vote_requests(description, user_id, election_id) VALUES(?,?,?)";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$description, $user_id]);
+			return $stmt->execute([$description, $user_id, $election_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());

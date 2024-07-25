@@ -82,17 +82,22 @@ class Vote
 		}
 	}
 
-	public function deleteAllUsersOlderVotes($user_id) {
+	public function deleteAllUsersOlderVotes($user_id, $election_id) {
 		try {
-			$sql = "DELETE FROM votes WHERE user_id = ?";
+			$sql = "DELETE FROM votes WHERE user_id = ? AND election_id = ?";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$user_id]);
+			return $stmt->execute([$user_id, $election_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());
 		}
 
 	}
+
+	// public function viewUsersLastVote($user_id)
+	// {
+	// 	// code...
+	// }
 
 }
 

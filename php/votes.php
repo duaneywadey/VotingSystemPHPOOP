@@ -34,7 +34,8 @@ if (isset($_POST['addVoteBtn'])) {
 
 if (isset($_POST['requestForVoteBtn'])) {
 	$requestForVoteDescription = $_POST['requestForVoteDescription'];
-	if ($voteObj->requestToVoteAgain($requestForVoteDescription, $_SESSION['user_id'])) {
+	$election_id = $_POST['election_id'];
+	if ($voteObj->requestToVoteAgain($requestForVoteDescription, $_SESSION['user_id'], $election_id)) {
 		$_SESSION['vote_request_sent'] = "Request to vote again sent successfully! Please wait for the admin's approval";
 		header('Location: ../requestforvote.php');
 	}

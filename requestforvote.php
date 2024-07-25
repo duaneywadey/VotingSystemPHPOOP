@@ -38,11 +38,11 @@ if (isset($_SESSION['is_admin'])) {
 						<?php } else { ?>
 						<form action="php/votes.php" method="POST">
 							<label for="requestForVoteDescription">Description</label>
+							<input type="hidden" name="election_id" value="<?php echo $_GET['election_id']; ?>">
 							<textarea class="form-control" name="requestForVoteDescription" placeholder="Why do you want to vote again?"></textarea>
 							<input type="submit" class="btn btn-primary float-right mt-4" name="requestForVoteBtn">
 						<?php } ?>
 						</form>
-
 					</div>
 				</div>
 			</div>
