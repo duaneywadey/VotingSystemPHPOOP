@@ -54,9 +54,11 @@ class Vote
 						another_vote_requests.another_vote_requests_id AS another_vote_requests_id,
 						another_vote_requests.description AS description,
 						another_vote_requests.is_accepted AS is_accepted,
-						another_vote_requests.date_added AS date_added
+						another_vote_requests.date_added AS date_added,
+						elections.election_title AS election_title
 					FROM users
 					JOIN another_vote_requests ON users.user_id = another_vote_requests.user_id
+					JOIN elections ON another_vote_requests.election_id = elections.election_id
 					WHERE another_vote_requests.is_accepted = 0
 					";
 			$stmt = $this->pdo->prepare($sql);
