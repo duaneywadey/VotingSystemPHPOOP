@@ -50,11 +50,13 @@ class Vote
 		try {
 			$sql = "SELECT 
 						users.username AS username,
+						users.user_id AS user_id,
 						another_vote_requests.user_id AS user_id,
 						another_vote_requests.another_vote_requests_id AS another_vote_requests_id,
 						another_vote_requests.description AS description,
 						another_vote_requests.is_accepted AS is_accepted,
 						another_vote_requests.date_added AS date_added,
+						another_vote_requests.election_id AS election_id,
 						elections.election_title AS election_title
 					FROM users
 					JOIN another_vote_requests ON users.user_id = another_vote_requests.user_id
@@ -68,6 +70,18 @@ class Vote
 		catch (PDOException $e) {
 			die($e->getMessage());
 		}
+	}
+
+	public function getUserRecentVote($user_id, $election_id) {
+		try {
+			$sql = "SELECT * FROM votes WHERE user_id = ? AND election_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			return $stmt->execute([$user_id, $election_id]);
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
 	}
 
 	public function acceptRequestToVoteAgain($another_vote_requests_id) {
@@ -96,10 +110,32 @@ class Vote
 
 	}
 
-	// public function viewUsersLastVote($user_id)
-	// {
-	// 	// code...
-	// }
+	public function viewUsersLastVote($user_id, $election_id) {
+		try {
+			$sql = "
+					SELECT 
+						users.username AS username,
+						votes.submitted_vote_id AS submitted_vote_id,
+						elections.election_title AS election_title,
+						categories.category_title AS category_title,
+						candidates.first_name AS candidate_first_name,
+						votes.date_added AS date_added
+					FROM users
+					JOIN votes ON users.user_id = votes.user_id
+					JOIN elections ON votes.election_id = elections.election_id
+					JOIN categories ON votes.category_id = categories.category_id
+					JOIN candidates ON votes.candidate_id = candidates.candidate_id
+					WHERE users.user_id = ? AND elections.election_id = ?
+					ORDER BY votes.date_added DESC
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$user_id, $election_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}		
+	}
 
 }
 

@@ -65,11 +65,15 @@ class Vote
 		}
 	}
 
-	public function findUserVoteRequest($user_id) {
+	public function findUserVoteRequest($user_id, $election_id) {
 		try {
-			$sql = "SELECT * FROM another_vote_requests WHERE user_id = ? AND is_accepted = 0";
+			$sql = "SELECT * FROM another_vote_requests 
+					WHERE user_id = ? 
+					AND election_id = ? 
+					AND is_accepted = 0";
+
 			$stmt = $this->pdo->prepare($sql);
-			$stmt->execute([$user_id]);
+			$stmt->execute([$user_id, $election_id]);
 			if ($stmt->rowCount() > 0) {
 				return true;
 			}

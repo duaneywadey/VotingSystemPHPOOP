@@ -33,7 +33,7 @@ if (isset($_SESSION['is_admin'])) {
 						</div>
 						<?php } unset($_SESSION['vote_request_sent']); ?>
 
-						<?php if ($voteObj->findUserVoteRequest($_SESSION['user_id'])) { ?>
+						<?php if ($voteObj->findUserVoteRequest($_SESSION['user_id'], $_GET['election_id'])) { ?>
 							<h2>Please wait for the admin if he approves your request</h2>
 						<?php } else { ?>
 						<form action="php/votes.php" method="POST">
