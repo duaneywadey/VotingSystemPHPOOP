@@ -10,6 +10,9 @@
         <a class="nav-link" href="index.php">Home</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="messages.php">Messages</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="add-an-election.php">Add Election</a>
       </li>
       <li class="nav-item">
