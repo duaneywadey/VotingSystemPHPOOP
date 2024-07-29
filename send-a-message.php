@@ -5,7 +5,7 @@ if (!isset($_SESSION['username'])) {
 }
 
 if (isset($_SESSION['is_admin'])) {
-	if ($_SESSION['is_admin'] == 0) {
+	if ($_SESSION['is_admin'] == 1) {
 		header('Location:login.php');
 	}
 }

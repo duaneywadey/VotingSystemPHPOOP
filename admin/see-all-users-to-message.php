@@ -26,14 +26,16 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card mt-4">
 					<div class="card-header"><h2>All Messages</h2></div>
 					<div class="card-body">
-						<a href="see-all-users-to-message.php">See All Users</a>
 						<input type="text" class="form-control mt-2 mb-4" placeholder="Search for a user">
 						<ul class="list-group list-group-flush">
-							<li class="list-group-item"><a href="send-a-message.php"><h4>An item</h4></a></li>
-							<li class="list-group-item"><h4>A second item</h4></li>
-							<li class="list-group-item"><h4>A third item</h4></li>
-							<li class="list-group-item"><h4>A fourth item</h4></li>
-							<li class="list-group-item"><h4>And a fifth one</h4></li>
+							<?php $getAllUsers = $userObj->getAllUsers(); ?>
+							<?php foreach ($getAllUsers as $user ) { ?>
+							<li class="list-group-item">
+								<a href="send-a-message.php?uid=<?php echo $user['user_id']; ?>&username=<?php echo $user['username']; ?>">
+									<h4><?php echo $user['username']; ?></h4>
+								</a>
+							</li>
+							<?php } ?>
 						</ul>
 					</div>
 				</div>
