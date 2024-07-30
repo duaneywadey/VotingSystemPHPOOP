@@ -64,14 +64,20 @@ class Message
 		}
 	}
 
-	public function getAllReceiversByUser($user_id) {
+	public function getAllSendersByUser($user_id) {
 		try {
-			$sql = "SELECT DISTINCT sender_id 
-					FROM messages 
-					WHERE sender_id = ? OR receiver_id = ?
+			$sql = "SELECT 
+						DISTINCT sender_id AS user_id
+					FROM messages
+					WHERE receiver_id = ?
+					UNION
+					SELECT 
+						DISTINCT receiver_id AS user_id
+					FROM messages
+					WHERE sender_id = ?
 					";
 			$stmt = $this->pdo->prepare($sql);
-			$stmt->execute([$user_id, $user_id]);
+			$stmt->execute([$user_id,$user_id]);
 			return $stmt->fetchAll();
 		}
 		catch (PDOException $e) {

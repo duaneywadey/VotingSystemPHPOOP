@@ -32,7 +32,11 @@ if (isset($_SESSION['is_admin'])) {
 							<li class="list-group-item">
 								<h4>
 									<?php $getUserById = $messageObj->getUserById($message['sender_id']); ?>
-									<?php echo $getUserById['username']; ?>
+									<?php if ($getUserById['username'] == $_SESSION['username']) { ?>
+										<?php echo "You" ?>
+									<?php } else { ?>
+										<?php echo $getUserById['username']; ?>
+									<?php } ?>
 								</h4>
 								<small>
 									<i><?php echo $message['date_added']; ?></i>

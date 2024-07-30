@@ -29,11 +29,11 @@ if (isset($_SESSION['is_admin'])) {
 						<a href="see-all-users-to-message.php">See All Users</a>
 						<input type="text" class="form-control mt-2 mb-4" placeholder="Search for a user">
 						<ul class="list-group list-group-flush">
-							<?php $getAllUsersMessageByUser = $messageObj->getAllReceiversByUser($_SESSION['user_id']); ?>
+							<?php $getAllUsersMessageByUser = $messageObj->getAllSendersByUser($_SESSION['user_id']); ?>
 							<?php foreach ($getAllUsersMessageByUser as $user) { ?>
 							<li class="list-group-item">
 								<h4>
-									<?php $getUserById = $messageObj->getUserById($user['sender_id']); ?>
+									<?php $getUserById = $messageObj->getUserById($user['user_id']); ?>
 									<a href="send-a-message.php?user_id=<?php echo $getUserById['user_id']; ?>&username=<?php echo $getUserById['username']; ?>"><?php echo $getUserById['username']; ?></a>
 								</h4>
 							</li>
