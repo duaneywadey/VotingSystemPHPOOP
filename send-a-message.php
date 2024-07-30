@@ -27,17 +27,28 @@ if (isset($_SESSION['is_admin'])) {
 					<div class="card-header"><h2><?php echo $_GET['username']; ?></h2></div>
 					<div class="card-body overflow-auto">
 						<ul class="list-group list-group-flush">
+							<?php $showMsgFromSenderAndReceiver = $messageObj->showMsgFromSenderAndReceiver($_SESSION['user_id'], $_GET['user_id']); ?>
+							<?php foreach ($showMsgFromSenderAndReceiver as $message) { ?>
 							<li class="list-group-item">
-								<h4>An item</h4>
-								<small><i>July 28, 2024</i></small>
-								<p class="mt-2">Lorem ipsum dolor sit amet, consectetur, adipisicing elit. Labore amet eius ducimus porro expedita repudiandae odio molestias vel quod quam, sapiente aspernatur? Laudantium, eveniet deleniti vel. Eveniet nisi eos temporibus!</p>
+								<h4>
+									<?php $getUserById = $messageObj->getUserById($message['sender_id']); ?>
+									<?php echo $getUserById['username']; ?>
+								</h4>
+								<small>
+									<i><?php echo $message['date_added']; ?></i>
+								</small>
+								<p class="mt-2">
+									<?php echo $message['description']; ?>
+								</p>
 							</li>
+							<?php } ?>
 						</ul>
 					</div>
 					<div class="card-footer" style="background-color: white;">
 						<form action="php/messages.php" method="POST">
 							<div class="form-group">
-								<input type="hidden" value="<?php echo $_GET['uid']; ?>" name="receiver_id">
+								<input type="hidden" value="<?php echo $_GET['user_id']; ?>" name="receiver_id">
+								<input type="hidden" value="<?php echo $_GET['username']; ?>" name="receiver_username">
 								<textarea name="description" class="form-control"></textarea>
 								<input type="submit" class="btn btn-primary float-right mt-2" name="sendMessageBtn">
 							</div>

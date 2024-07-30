@@ -28,25 +28,40 @@ class Message
 			$sql = "SELECT 
 						sender_id, 
 						receiver_id, 
-						description 
+						description,
+						date_added
 					FROM messages 
-					WHERE sender_id = 34 AND receiver_id = 26 
+					WHERE sender_id = ? AND receiver_id = ? 
 					UNION ALL 
 					SELECT 
 						sender_id, 
 						receiver_id, 
-						description 
+						description,
+						date_added 
 					FROM messages 
-					WHERE sender_id = 26 AND receiver_id = 34;
+					WHERE receiver_id = ? AND sender_id = ?
+					ORDER BY date_added
 					";
 			$stmt = $this->pdo->prepare($sql);
-			$stmt->execute([$sender_id, $receiver_id]);
+			$stmt->execute([$sender_id, $receiver_id, $sender_id, $receiver_id]);
 			return $stmt->fetchAll();
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());
 		}
 
+	}
+
+	public function getUserById($user_id) {
+		try {
+			$sql = "SELECT * FROM users WHERE user_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$user_id]);
+			return $stmt->fetch();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
 	}
 
 }

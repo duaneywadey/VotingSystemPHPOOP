@@ -31,7 +31,7 @@ if (isset($_SESSION['is_admin'])) {
 							<?php $getAllUsers = $userObj->getAllUsers(); ?>
 							<?php foreach ($getAllUsers as $user ) { ?>
 							<li class="list-group-item">
-								<a href="send-a-message.php?uid=<?php echo $user['user_id']; ?>&username=<?php echo $user['username']; ?>">
+								<a href="send-a-message.php?user_id=<?php echo $user['user_id']; ?>&username=<?php echo $user['username']; ?>">
 									<h4><?php echo $user['username']; ?></h4>
 								</a>
 							</li>
