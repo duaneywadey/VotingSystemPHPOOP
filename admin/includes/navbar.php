@@ -28,6 +28,9 @@
         <a class="nav-link" href="adminlist.php">Admins</a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="files.php">Files</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="php/users.php?logoutAUser=1">Logout</a>
       </li>
     </ul>
