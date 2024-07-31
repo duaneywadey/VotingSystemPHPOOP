@@ -27,8 +27,15 @@
       <li class="nav-item">
         <a class="nav-link" href="adminlist.php">Admins</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="files.php">Files</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Files
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="files.php">Admin Files</a>
+          <a class="dropdown-item" href="add-admin-image.php">Add Image</a>
+          <a class="dropdown-item" href="#">Add Documents</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="php/users.php?logoutAUser=1">Logout</a>
