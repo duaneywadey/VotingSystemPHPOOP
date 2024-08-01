@@ -37,6 +37,15 @@ class File
 		}
 	}
 
+	public function checkIfNotTooLarge($image) {
+		if ($image['size'] < 1000000) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+
 	public function saveImage($file_name, $temp_file_name, $user_id) {
 		try {
 			$sql = "INSERT INTO admin_files (file_name, added_by) VALUES (?,?)";

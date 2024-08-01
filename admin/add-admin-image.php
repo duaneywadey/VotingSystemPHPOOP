@@ -27,6 +27,13 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card">
 					<div class="card-header"><h3>Add New Image</h3></div>
 					<div class="card-body">
+
+						<?php if (isset($_SESSION['too_large_alert'])) { ?>
+							<div class="alert alert-danger" role="alert">
+								<?php echo $_SESSION['too_large_alert']; ?>
+							</div>
+						<?php } unset($_SESSION['too_large_alert']); ?>
+
 						<form action="php/files.php" method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="imageFile">Upload Image</label>

@@ -16,11 +16,8 @@ if (isset($_POST['addImageBtn'])) {
 	// Use the time method for the file's name
 	$imageName = time().".".$fileExtension;
 
-	if ($_FILES['image']['size'] > 1000000) {
-		echo "File is too large. Please upload a file with less than 5MB";
-	}
-	
-	else {
+	if ($fileObj->checkIfNotTooLarge($_FILES['image'])) {
+
 		// Save image to database
 		if ($fileObj->saveImage($imageName, $tempFileName, $_SESSION['user_id'])) {
 			$folder = "../admin_images/".$imageName;
@@ -29,8 +26,17 @@ if (isset($_POST['addImageBtn'])) {
 			if (move_uploaded_file($tempFileName, $folder)) {
 				header("Location: ../add-admin-image.php");
 			}
-		 }
+		}
 	}
+	
+	else {
+		$_SESSION['too_large_alert'] = "File is too large!";
+		header("Location: ../add-admin-image.php");
+	}
+
+	
+
+	
 
 
 }
