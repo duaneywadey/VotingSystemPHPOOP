@@ -12,26 +12,6 @@ class File
 		}
 	}
 
-	public function validateImage($imageName) {
-		try {
-			$fileExtension = pathinfo($imageName, PATHINFO_EXTENSION);
-			$maxSize = 26214400;
-			$check = getimagesize($imageName);
-			$response = [];
-
-			if ($check) {
-				return true;
-			}
-
-			else {
-				return false;
-			}
-		}
-		catch (PDOException $e) {
-			die($e->getMessage());
-		}
-
-	}
 
 	public function returnJSONSuccessful($greeting) {
 		try {

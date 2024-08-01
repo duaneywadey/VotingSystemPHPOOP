@@ -16,20 +16,22 @@ if (isset($_POST['addImageBtn'])) {
 	// Use the time method for the file's name
 	$imageName = time().".".$fileExtension;
 
-	$responseArray = json_decode($fileObj->returnJSONSuccessful("help"), true);
-	echo $responseArray['msg'];
-	echo $responseArray['status'];
+	if ($_FILES['image']['size'] > 1000000) {
+		echo "File is too large. Please upload a file with less than 5MB";
+	}
+	
+	else {
+		// Save image to database
+		if ($fileObj->saveImage($imageName, $tempFileName, $_SESSION['user_id'])) {
+			$folder = "../admin_images/".$imageName;
 
-	// // Save image to database
-	// if ($fileObj->saveImage($imageName, $tempFileName, $_SESSION['user_id'])) {
-	// 	$folder = "../admin_images/".$imageName;
+			// Save image file to PHP project
+			if (move_uploaded_file($tempFileName, $folder)) {
+				header("Location: ../add-admin-image.php");
+			}
+		 }
+	}
 
-	// 	// Save image file to PHP project
-	// 	if (move_uploaded_file($tempFileName, $folder)) {
-	// 		header("Location: ../add-admin-image.php");
-	// 	}
-		 
-	// }
 
 }
 
