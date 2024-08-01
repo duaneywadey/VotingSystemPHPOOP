@@ -24,11 +24,12 @@ if (isset($_POST['addImageBtn'])) {
 
 			// Save image file to PHP project
 			if (move_uploaded_file($tempFileName, $folder)) {
+				$_SESSION['successfully_saved_image'] = "Successfully saved image!";
 				header("Location: ../add-admin-image.php");
 			}
 		}
 	}
-	
+
 	else {
 		$_SESSION['too_large_alert'] = "File is too large!";
 		header("Location: ../add-admin-image.php");

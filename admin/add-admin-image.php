@@ -34,6 +34,12 @@ if (isset($_SESSION['is_admin'])) {
 							</div>
 						<?php } unset($_SESSION['too_large_alert']); ?>
 
+						<?php if (isset($_SESSION['successfully_saved_image'])) { ?>
+							<div class="alert alert-success" role="alert">
+								<?php echo $_SESSION['successfully_saved_image']; ?>
+							</div>
+						<?php } unset($_SESSION['successfully_saved_image']); ?>
+
 						<form action="php/files.php" method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="imageFile">Upload Image</label>
