@@ -55,6 +55,19 @@ class File
 		catch (PDOException $e) {
 			die($e->getMessage());
 		}
+	}
+
+	public function showAllImages() {
+		try {
+			$sql = "SELECT * FROM admin_files";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
 	}	
 
 }
