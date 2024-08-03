@@ -14,7 +14,7 @@ if (isset($_POST['addImageBtn'])) {
 	$fileExtension = pathinfo($fileName, PATHINFO_EXTENSION);
 
 	// Use the time method for the file's name
-	$imageName = time().".".$fileExtension;
+	$imageName = uniqid().".".$fileExtension;
 
 	if ($fileObj->checkIfNotTooLarge($_FILES['image'])) {
 
