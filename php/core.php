@@ -20,3 +20,4 @@ $electionObj  = new Election($pdo);
 $userObj  = new User($pdo);
 $voteObj  = new Vote($pdo);
 $messageObj  = new Message($pdo);
+$fileObj  = new File($pdo);
