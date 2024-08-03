@@ -68,6 +68,40 @@ class File
 			die($e->getMessage());
 		}
 
+	}
+
+	public function showAllUsersWithImage() {
+		try {
+			$sql = "SELECT 
+						DISTINCT users.username AS username,
+						users.user_id AS user_id
+					FROM users 
+					JOIN user_images ON users.user_id = user_images.user_id 
+					WHERE users.user_id IN ( 
+						SELECT user_id FROM user_images 
+					)
+					";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute();
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+	}
+	public function showAllImagesByUser($user_id) {
+		try {
+			$sql = "SELECT * FROM user_images 
+					WHERE user_id = ? 
+					ORDER BY date_added DESC";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$user_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}
+
 	}	
 
 }

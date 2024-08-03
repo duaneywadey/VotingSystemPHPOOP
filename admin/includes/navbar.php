@@ -32,6 +32,7 @@
           Files
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="user-files.php">User Files</a>
           <a class="dropdown-item" href="files.php">Admin Files</a>
           <a class="dropdown-item" href="add-admin-image.php">Add Image</a>
           <a class="dropdown-item" href="#">Add Documents</a>
