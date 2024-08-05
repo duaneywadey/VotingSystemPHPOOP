@@ -21,3 +21,4 @@ $userObj  = new User($pdo);
 $voteObj  = new Vote($pdo);
 $messageObj  = new Message($pdo);
 $fileObj  = new File($pdo);
+$albumObj  = new Album($pdo);

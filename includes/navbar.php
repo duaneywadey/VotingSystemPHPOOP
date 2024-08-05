@@ -16,7 +16,7 @@
         <a class="nav-link" href="voting-results.php">Voting Results</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="upload-images.php">Images</a>
+        <a class="nav-link" href="all-albums.php">Albums</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="php/users.php?logoutAUser=1">Logout</a>

@@ -23,8 +23,7 @@ if (isset($_SESSION['is_admin'])) {
 	<?php include 'includes/navbar.php'; ?>
 	<div class="container">
 		<div class="row mt-4">
-			<h1>Send images here! <span class="text-primary"><?php echo $_SESSION['username']?></span>
-			</h1>
+			<h1><?php echo $_GET['album_title']; ?></h1>
 			<div class="col-md-12">
 				<div class="card">
 					<div class="card-header">Upload an Image</div>
@@ -56,7 +55,6 @@ if (isset($_SESSION['is_admin'])) {
 			</div>
 		</div>
 		<div class="row mt-4">
-			<h1><?php echo $_SESSION['username']?>'s Images</h1>
 			<?php $showAllUserImages = $fileObj->showAllUserImages($_SESSION['user_id']); ?>
 			<?php foreach ($showAllUserImages as $image) { ?>
 			<div class="col-md-12">
