@@ -63,7 +63,9 @@ if (isset($_SESSION['is_admin'])) {
 				<div class="card mt-4">
 					<div class="card-header"><h3><?php echo $image['date_added']; ?></h3></div>
 					<div class="card-body">
-						<img src="user_images/<?php echo $image['image_title']; ?>" width="100%" alt="">
+						<a href="user_images/<?php echo $image['image_title']; ?>">
+							<img src="user_images/<?php echo $image['image_title']; ?>" width="100%" alt="">
+						</a>
 					</div>
 				</div>
 			</div>

@@ -33,7 +33,9 @@ if (isset($_SESSION['is_admin'])) {
 						<h1><?php echo $image['file_name']; ?></h1>
 					</div>
 					<div class="card-body">
-						<img src="admin_images/<?php echo $image['file_name']; ?>" width="300" height="300" alt="">
+						<a href="admin_images/<?php echo $image['file_name']; ?>" class="example-image-link">
+							<img src="admin_images/<?php echo $image['file_name']; ?>" width="300" height="300" alt="">
+						</a>
 					</div>
 				</div>
 			</div>
