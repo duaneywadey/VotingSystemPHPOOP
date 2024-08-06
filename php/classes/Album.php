@@ -34,6 +34,18 @@ class Album {
 		}	
 	}
 
+	public function seeAllPhotosByAlbum($album_id) {
+		try {
+			$sql = "SELECT * FROM user_images WHERE album_id = ?";
+			$stmt = $this->pdo->prepare($sql);
+			$stmt->execute([$album_id]);
+			return $stmt->fetchAll();
+		}
+		catch (PDOException $e) {
+			die($e->getMessage());
+		}	
+	}
+
 
 }
 

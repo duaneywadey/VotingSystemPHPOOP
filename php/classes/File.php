@@ -46,11 +46,11 @@ class File
 		}
 	}
 
-	public function saveImage($image_title, $user_id) {
+	public function saveImage($image_title, $album_id, $user_id) {
 		try {
-			$sql = "INSERT INTO user_images (image_title, user_id) VALUES (?,?)";
+			$sql = "INSERT INTO user_images (image_title, album_id, user_id) VALUES (?,?,?)";
 			$stmt = $this->pdo->prepare($sql);
-			return $stmt->execute([$image_title, $user_id]);
+			return $stmt->execute([$image_title, $album_id, $user_id]);
 		}
 		catch (PDOException $e) {
 			die($e->getMessage());

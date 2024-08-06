@@ -41,7 +41,7 @@ if (isset($_SESSION['is_admin'])) {
 							</div>
 						<?php } unset($_SESSION['successfully_saved_image']); ?>
 
-						<form action="php/files.php" method="POST" enctype="multipart/form-data">
+						<form action="php/files.php?album_id=<?php echo $_GET['album_id']; ?>&album_title=<?php echo $_GET['album_title']; ?>" method="POST" enctype="multipart/form-data">
 							<div class="form-group">
 								<label for="imageFile">Upload Image</label>
 								<input type="file" name="image" class="form-control" accept=".jpg, .jpeg" required>
@@ -55,9 +55,9 @@ if (isset($_SESSION['is_admin'])) {
 			</div>
 		</div>
 		<div class="row mt-4">
-			<?php $showAllUserImages = $fileObj->showAllUserImages($_SESSION['user_id']); ?>
-			<?php foreach ($showAllUserImages as $image) { ?>
-			<div class="col-md-12">
+			<?php $seeAllPhotosByAlbum = $albumObj->seeAllPhotosByAlbum($_GET['album_id']); ?>
+			<?php foreach ($seeAllPhotosByAlbum as $image) { ?>
+			<div class="col-md-4">
 				<div class="card mt-4">
 					<div class="card-header"><h3><?php echo $image['date_added']; ?></h3></div>
 					<div class="card-body">

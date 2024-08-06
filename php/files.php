@@ -23,13 +23,13 @@ if (isset($_POST['addImageBtn'])) {
 	if ($fileObj->checkIfNotTooLarge($_FILES['image'])) {
 
 		// Save image to database
-		if ($fileObj->saveImage($imageName, $_SESSION['user_id'])) {
+		if ($fileObj->saveImage($imageName, $_GET['album_id'], $_SESSION['user_id'])) {
 			$folder = "../user_images/".$imageName;
 
 			// Save image file to PHP project
 			if (move_uploaded_file($tempFileName, $folder)) {
 				$_SESSION['successfully_saved_image'] = "Successfully saved image!";
-				header("Location: ../upload-images.php");
+				header("Location: ../upload-images.php?album_id=" . $_GET['album_id'] . "&album_title=" . $_GET['album_title']);
 			}
 		}
 	}
