@@ -36,7 +36,7 @@ if (isset($_POST['addImageBtn'])) {
 
 	else {
 		$_SESSION['too_large_alert'] = "File is too large!";
-		header("Location: ../upload-images.php");
+		header("Location: ../upload-images.php?album_id=" . $_GET['album_id'] . "&album_title=" . $_GET['album_title']);
 	}
 
 }

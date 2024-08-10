@@ -38,7 +38,7 @@ class File
 	}
 
 	public function checkIfNotTooLarge($image) {
-		if ($image['size'] < 1000000) {
+		if ($image['size'] < 5000000) {
 			return true;
 		}
 		else {
